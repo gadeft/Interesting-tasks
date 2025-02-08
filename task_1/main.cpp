@@ -2,10 +2,11 @@
 #include <algorithm>
 #include <math.h>
 #include <string>
+#include "../functions.cpp"
+#include <stdexcept>
 
 int power = 2;
 
-int check_input(std::string input);
 void createArray(int n);
 
 int main()
@@ -16,9 +17,22 @@ int main()
     while (true)
     {
         std::cout << "Enter a number: ";
-        std::getline(std::cin, input);
 
-        number = check_input(input);
+        try
+        {
+            std::getline(std::cin, input);
+            number = check_input(input);
+        }
+        catch (const char* error)
+        {
+            std::cout << error << std::endl;
+            continue;
+        }
+        catch (const std::invalid_argument& ai)
+        {
+            std::cerr << "Invalid argument: " << ai.what() << std::endl;
+            continue;
+        }
 
         createArray(number);
     }
@@ -39,17 +53,4 @@ void createArray(int n)
            }
        }
    }
-}
-
-int check_input(std::string input)
-{
-    for (std::string::iterator it = input.begin(); it != input.end(); it++)
-    {
-        if (!std::isdigit(*it))
-        {
-            std::cout << "Unexpected value" << std::endl;
-            return -1;
-        }
-    }
-    return std::stoi(input);
 }

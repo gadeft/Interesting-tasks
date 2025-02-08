@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
+#include "../functions.cpp"
+#include <stdexcept>
 
 void pascals_triangle(int number);
-int check_input(std::string input);
 
 int main()
 {
@@ -12,9 +13,24 @@ int main()
     while (true)
     {
         std::cout << "Enter a number: ";
-        std::getline(std::cin, input);
 
-        number = check_input(input);
+        try
+        {
+            std::getline(std::cin, input);
+            number = check_input(input);
+            if (number < 1)
+                throw "Unexpected value";
+        }
+        catch (const char* error)
+        {
+            std::cout << error << std::endl;
+            continue;
+        }
+        catch (const std::invalid_argument& ai)
+        {
+            std::cerr << "Invalid argument: " << ai.what() << std::endl;
+            continue;
+        }
 
         pascals_triangle(number);
     }
@@ -40,17 +56,4 @@ void pascals_triangle(int number)
 
         std::cout << std::endl;
     }
-}
-
-int check_input(std::string input)
-{
-    for (std::string::iterator it = input.begin(); it != input.end(); it++)
-    {
-        if (!std::isdigit(*it))
-        {
-            std::cout << "Unexpected value" << std::endl;
-            return -1;
-        }
-    }
-    return std::stoi(input);
 }
