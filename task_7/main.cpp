@@ -1,9 +1,7 @@
-#include <iostream>
+#include "../include.h"
+#include "../functions.cpp"
 #include "../task_3/eratosphen.cpp"
 #include <vector>
-#include "../functions.cpp"
-#include <string>
-#include <stdexcept>
 
 int main()
 {

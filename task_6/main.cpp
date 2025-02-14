@@ -1,8 +1,7 @@
-#include <iostream>
-#include <string>
+#include "../include.h"
+#include "../functions.cpp"
 #include <vector>
 #include <fstream>
-#include "../functions.cpp"
 
 std::string name_of_number(int number);
 
@@ -71,7 +70,7 @@ int main()
 std::string name_of_number(int number)
 {
     std::string row = std::to_string(number);
-    std::ifstream names("names.txt");
+    std::ifstream names("/home/user/interesting_tasks/task_6/names.txt");
     std::string input;
 
     while (input != "end")

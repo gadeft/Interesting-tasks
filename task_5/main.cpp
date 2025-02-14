@@ -1,8 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include "../include.h"
 #include "../functions.cpp"
-#include <stdexcept>
+#include <vector>
 
 bool palindrome(int number);
 

@@ -1,11 +1,9 @@
-#include <iostream>
+#include "../include.h"
+#include "../functions.cpp"
 #include <algorithm>
 #include <math.h>
-#include <string>
-#include "../functions.cpp"
-#include <stdexcept>
 
-int power = 2;
+#define power 2
 
 void createArray(int n);
 

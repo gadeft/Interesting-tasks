@@ -1,8 +1,6 @@
-#include <iostream>
-#include <string>
-#include "eratosphen.cpp"
+#include "../include.h"
 #include "../functions.cpp"
-#include <stdexcept>
+#include "eratosphen.cpp"
 
 void output(int* array, int size);
 

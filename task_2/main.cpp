@@ -1,7 +1,5 @@
-#include <iostream>
-#include <string>
+#include "../include.h"
 #include "../functions.cpp"
-#include <stdexcept>
 
 void pascals_triangle(int number);
 
